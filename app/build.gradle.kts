@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     // For Dagerhilt
     kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -61,8 +62,8 @@ dependencies {
     //Glide
     implementation("com.github.bumptech.glide:glide:4.12.0")
     //Dagger - Hilt
-    implementation("com.google.dagger:hilt-android:2.50")
-    kapt("com.google.dagger:hilt-android-compiler:2.50")
+    implementation("com.google.dagger:hilt-android:2.47")
+    kapt("com.google.dagger:hilt-android-compiler:2.47")
 }
 kapt {
     correctErrorTypes = true
