@@ -26,5 +26,9 @@
         android:id="@+id/registerFragment"
         android:name="com.example.homework20.presentation.screen.register.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
 </navigation>
