@@ -15,18 +15,16 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class WelcomeFragment: BaseFragment<FragmentWelcomeBinding>(FragmentWelcomeBinding::inflate) {
+class WelcomeFragment : BaseFragment<FragmentWelcomeBinding>(FragmentWelcomeBinding::inflate) {
     private val viewModel: WelcomeViewModel by viewModels()
     override fun setup() {
 
     }
 
     override fun setupListeners() {
-        binding.btnLogin.setOnClickListener{
-            viewModel.onEvent(NavigationEvent.NavigateToLogin)
-        }
-        binding.btnRegister.setOnClickListener{
-            viewModel.onEvent(NavigationEvent.NavigateToRegister)
+        with(binding) {
+            btnLogin.setOnClickListener { viewModel.onEvent(NavigationEvent.NavigateToLogin) }
+            btnRegister.setOnClickListener { viewModel.onEvent(NavigationEvent.NavigateToRegister) }
         }
 
     }
@@ -41,15 +39,13 @@ class WelcomeFragment: BaseFragment<FragmentWelcomeBinding>(FragmentWelcomeBindi
         }
     }
 
-    private fun logIn() {
-
-    }
 
     private fun handleNavigationEvents(event: WelcomeViewModel.LogInUiEvent) {
         when (event) {
             is WelcomeViewModel.LogInUiEvent.NavigateToLogin -> findNavController().navigate(
                 R.id.action_welcomeFragment_to_loginFragment
             )
+
             is WelcomeViewModel.LogInUiEvent.NavigateToRegister -> findNavController().navigate(
                 R.id.action_welcomeFragment_to_registerFragment
             )

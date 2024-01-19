@@ -34,10 +34,6 @@ class WelcomeViewModel: ViewModel() {
         }
     }
 
-    private fun logIn(){
-
-    }
-
     sealed interface LogInUiEvent {
         data object NavigateToLogin : LogInUiEvent
         data object NavigateToRegister : LogInUiEvent
