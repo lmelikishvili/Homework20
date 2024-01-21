@@ -1,5 +1,6 @@
 package com.example.homework20.presentation.screen.register
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -8,8 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.homework20.R
 import com.example.homework20.databinding.FragmentRegisterBinding
 import com.example.homework20.presentation.base.BaseFragment
-import com.example.homework20.presentation.event.NavigationEvent
-import com.example.homework20.presentation.screen.welcome.WelcomeViewModel
+import com.example.homework20.presentation.event.users.UsersEvent
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -18,7 +18,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
     private val viewModel: RegisterViewModel by viewModels()
     override fun setup() {
         binding.btnAdd.setOnClickListener{
-            viewModel.onEvent(NavigationEvent.NavigateToLogin)
+            viewModel.onEvent(UsersEvent.CreateUser)
         }
     }
 
@@ -28,9 +28,9 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
 
     override fun bindData() {
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiEvent.collect {
-                    handleNavigationEvents(event = it)
+            repeatOnLifecycle(Lifecycle.State.STARTED){
+                viewModel.users.collect{
+                    Log.d("usersListFromDB", "${it}")
                 }
             }
         }

@@ -4,13 +4,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.homework20.R
 import com.example.homework20.databinding.FragmentWelcomeBinding
 import com.example.homework20.presentation.base.BaseFragment
-import com.example.homework20.presentation.event.Log_in.LoginEvent
-import com.example.homework20.presentation.event.NavigationEvent
+import com.example.homework20.presentation.event.navigation.NavigationEvent
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

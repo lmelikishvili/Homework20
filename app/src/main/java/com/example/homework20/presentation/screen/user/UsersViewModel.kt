@@ -1,4 +1,4 @@
-package com.example.homework20.presentation.screen.register
+package com.example.homework20.presentation.screen.user
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,15 +10,13 @@ import com.example.homework20.presentation.mapper.user.toPresenter
 import com.example.homework20.presentation.model.User
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.random.Random
 
 @HiltViewModel
-class RegisterViewModel @Inject constructor(
+class UsersViewModel @Inject constructor(
     private val getUsersUseCase: GetUsersUseCase,
     private val insertUserUseCase: InsertUserUseCase
 ) : ViewModel() {
@@ -28,10 +26,6 @@ class RegisterViewModel @Inject constructor(
             it.toPresenter()
         }
     }
-
-    private val _uiEvent = MutableSharedFlow<LogInUiEvent>()
-    val uiEvent: SharedFlow<LogInUiEvent> get() = _uiEvent
-
 
 
     fun onEvent(event: UsersEvent) {
@@ -54,15 +48,4 @@ class RegisterViewModel @Inject constructor(
             )
         }
     }
-
-    private fun toLogin(){
-        viewModelScope.launch {
-            _uiEvent.emit(LogInUiEvent.NavigateToLogin)
-        }
-    }
-
-    sealed interface LogInUiEvent {
-        data object NavigateToLogin : LogInUiEvent
-    }
-
 }

@@ -2,9 +2,7 @@ package com.example.homework20.presentation.screen.welcome
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.homework20.presentation.event.Log_in.LoginEvent
-import com.example.homework20.presentation.event.NavigationEvent
-import dagger.hilt.android.lifecycle.HiltViewModel
+import com.example.homework20.presentation.event.navigation.NavigationEvent
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
