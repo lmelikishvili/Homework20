@@ -6,4 +6,4 @@
 - kapt
 - ksp
  # Descrition
- This feature is useful for people who lovesnature and fishing
+ This application is useful for people who loves nature and fishing
